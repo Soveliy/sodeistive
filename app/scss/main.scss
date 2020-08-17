@@ -2941,3 +2941,23 @@ button{
     }
 
 
+.file-btn{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: $white;
+    margin-top: 18px;
+    font-size: 18px;
+    line-height: 22px;
+    transition: .3s;
+    &:hover{
+        opacity: .7;
+    }
+    img{
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+    input{
+        display: none;
+    }
+}
