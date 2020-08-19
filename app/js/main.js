@@ -127,14 +127,14 @@ $('.about-reviews__slider').slick({
     ] 
 });
 
-document.addEventListener('click', function(e) {
-  var map = document.querySelector('#map-wrap iframe')
-  if(e.target.id === 'map-wrap') {
-      map.style.pointerEvents = 'all'
-  } else {
-      map.style.pointerEvents = 'none'
-  }
-})
+// document.addEventListener('click', function(e) {
+//   var map = document.querySelector('#map-wrap iframe')
+//   if(e.target.id === 'map-wrap') {
+//       map.style.pointerEvents = 'all'
+//   } else {
+//       map.style.pointerEvents = 'none'
+//   }
+// })
     
 
 $(document).ready(function(){
@@ -146,8 +146,10 @@ $(document).ready(function(){
         percentTime;
     
     $slick = $('.hero__slider');
+    
     $slick.slick({
-      speed: 600,
+  
+ 
       draggable: true,
       centerPadding: '20px',
       adaptiveHeight: false,
@@ -157,8 +159,9 @@ $(document).ready(function(){
       prevArrow: '<button class="arrows-slider arrows-slider__left"></button>'
     });
     
-    $slick = $('.services__slider-block');
-    $slick.slick({
+    $slick2 = $('.services__slider-block');
+    $slick2.slick({
+ 
       speed: 600,
       draggable: true,
       fade: true,
@@ -169,8 +172,10 @@ $(document).ready(function(){
     prevArrow: '<button class="arrows-slider arrows-slider__left services-arrows services-arrows__left"></button>'
     }); 
 
-    $slick = $('.content-page__slider-down-block');
-    $slick.slick({
+    $slick3 = $('.content-page__slider-down-block');
+    $slick3.slick({
+      autoplay:true,
+      autoplaySpeed:5500,
       speed: 600,
       slidesToShow: 1,
       draggable: true,
@@ -179,7 +184,7 @@ $(document).ready(function(){
       mobileFirst: true,
       pauseOnDotsHover: false,
       nextArrow: '<button class="arrows-slider arrows-slider__right services-arrows services-arrows__right"></button>',
-    prevArrow: '<button class="arrows-slider arrows-slider__left services-arrows services-arrows__left"></button>',
+      prevArrow: '<button class="arrows-slider arrows-slider__left services-arrows services-arrows__left"></button>',
     responsive: [
       {
         breakpoint: 550,
@@ -222,6 +227,8 @@ $(document).ready(function(){
         if(percentTime >= 100)
           {
             $slick.slick('slickNext');
+            $slick2.slick('slickNext');
+            $slick3.slick('slickNext');
             startProgressbar();
           }
         
@@ -263,20 +270,20 @@ $(document).ready(function(){
 
     
 
-    function interval() {
-      if(isPause === false) {
-        percentTime += 1 / (time+0.1);
-        $bar.css({
-          width: percentTime+"%"
-        });
-        if(percentTime >= 100)
-          {
-            $slick.slick('slickNext');
-            startProgressbar();
+    // function interval() {
+    //   if(isPause === false) {
+    //     percentTime += 1 / (time+0.1);
+    //     $bar.css({
+    //       width: percentTime+"%"
+    //     });
+    //     if(percentTime >= 100)
+    //       {
+    //         $slick.slick('slickNext');
+    //         startProgressbar();
             
-          }
-      }
-    }
+    //       }
+    //   }
+    // }
     
   
   });
@@ -333,7 +340,7 @@ $(document).ready(function(){
     
   })
 
-  $("#phone").mask("+7(999) 999-99-99");
+  $(".numbox").mask("+7(999) 999-99-99");
 
   $('.nav-toggle').click(function () {
     $(this).toggleClass('opened')
