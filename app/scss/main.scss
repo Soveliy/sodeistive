@@ -218,7 +218,7 @@ button{
                
                
                 &:hover{
-                    background-image: url(../images/logo-3-active.jpg);
+                    filter: grayscale(1);
                 }
             }
         }
