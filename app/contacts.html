@@ -50,15 +50,21 @@
                 </div>
                 <div class="header__call-block call-block ">
                     <div class="social">
-                        <a href="" class="social__link">
-                            <img class="social__link-img" src="images/social/telegram.png" alt="">
-                        </a>
-                        <a href="" class="social__link">
-                            <img class="social__link-img" src="images/social/viber.png" alt="">
-                        </a>
-                        <a href="" class="social__link">
-                            <img class="social__link-img" src="images/social/whatsapp.png" alt="">
-                        </a>
+                        <div class="social__container">
+                            <a href="" class="social__link">
+                                <img class="social__link-img" src="images/social/telegram.png" alt="">
+                            </a>
+                        </div>
+                        <div class="social__container">
+                            <a href="" class="social__link">
+                                <img class="social__link-img" src="images/social/viber.png" alt="">
+                            </a>
+                        </div>
+                        <div class="social__container">
+                            <a href="" class="social__link">
+                                <img class="social__link-img" src="images/social/whatsapp.png" alt="">
+                            </a>  
+                        </div>  
                     </div>
                     <div class="communication call-block__communication">
                         <a class="communication__link communication__link--number" href="tel:88004441046">8 800 444 10 46</a>
@@ -98,7 +104,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <nav class="menu menu--mobile">
+                        <nav class="menu menu--mobile menu--relative">
                             <ul class="menu__list">
                                 <li><a href="#">Услуги</a></li>
                                 <li><a href="#">о нас</a></li>
@@ -110,15 +116,21 @@
                                 
                                 <div class="call-block call-block--mobile">
                                     <div class="social">
-                                        <a href="" class="social__link">
-                                            <img class="social__link-img" src="images/social/telegram.png" alt="">
-                                        </a>
-                                        <a href="" class="social__link">
-                                            <img class="social__link-img" src="images/social/viber.png" alt="">
-                                        </a>
-                                        <a href="" class="social__link">
-                                            <img class="social__link-img" src="images/social/whatsapp.png" alt="">
-                                        </a>
+                                        <div class="social__container">
+                                            <a href="" class="social__link">
+                                                <img class="social__link-img" src="images/social/telegram.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="social__container">
+                                            <a href="" class="social__link">
+                                                <img class="social__link-img" src="images/social/viber.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="social__container">
+                                            <a href="" class="social__link">
+                                                <img class="social__link-img" src="images/social/whatsapp.png" alt="">
+                                            </a>  
+                                        </div>  
                                     </div>
                                     <div class="communication call-block__communication">
                                         <a class="communication__link communication__link--number" href="tel:88004441046">8 800 444 10 46</a>
@@ -147,18 +159,26 @@
                             Контакты
                         </h2>
                         <div class="contacts-page__tabs">
-                            <a class="contacts-page__tab tab" href="#contacts-1">
-                                Курск
-                            </a>
-                            <a class="contacts-page__tab tab active" href="#contacts-2">
-                                Москва
-                            </a>
-                            <a class="contacts-page__tab tab" href="#contacts-3">
-                                Сочи
-                            </a>
-                            <a class="contacts-page__tab tab" href="#contacts-4">
-                                Крым
-                            </a>
+                            <div class="contacts-page__tab-container">
+                                <a class="contacts-page__tab tab" href="#contacts-1">
+                                    Курск
+                                </a>
+                            </div>
+                            <div class="contacts-page__tab-container">
+                                <a class="contacts-page__tab tab active" href="#contacts-2">
+                                    Москва
+                                </a>
+                            </div>
+                            <div class="contacts-page__tab-container">
+                                <a class="contacts-page__tab tab" href="#contacts-3">
+                                    Сочи
+                                </a>
+                            </div>
+                            <div class="contacts-page__tab-container">
+                                <a class="contacts-page__tab tab" href="#contacts-4">
+                                    Крым
+                                </a>
+                            </div>
                         </div>
                         <div class="contacts-page__tabs-content">
                             <div id="contacts-1" class="contacts-page__tab-content tab-content">
@@ -172,7 +192,12 @@
                                             <div class="contact-item__address">
                                                 Адрес: г. Курск, ул. Свободы, 14
                                             </div>
-                                            <a class="contact-item__link-map" href="#">
+                                            <div class="content_block">
+                                                <p></p>
+                                                <p></p>
+                                                <ul></ul>
+                                            </div>
+                                            <a class="contact-item__link-map" href="#map-modal1" data-fancybox="">
                                                 Карта проезда
                                             </a>
     
@@ -196,8 +221,8 @@
                                         </div>
                                     </div>
                                    
-                                    <div id="map-wrap" class="contact-item__map-block">
-                                        <iframe class="contact-item__map" style="pointer-events: none;" src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" width="100%" height="505" frameborder="0"></iframe>
+                                    <div class="contact-item__map-block"  id="wrapMap">
+                                        <iframe class="contact-item__map ymaps-map"  src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" width="100%" height="505" frameborder="0"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +237,12 @@
                                             <div class="contact-item__address">
                                                 Адрес: г. Москва, ул. Свободы, 14
                                             </div>
-                                            <a class="contact-item__link-map" href="#">
+                                            <div class="content_block">
+                                                <p></p>
+                                                <p></p>
+                                                <ul></ul>
+                                            </div>
+                                            <a class="contact-item__link-map" href="#map-modal2" data-fancybox="">
                                                 Карта проезда
                                             </a>
     
@@ -236,8 +266,8 @@
                                         </div>
                                     </div>
                                    
-                                    <div id="map-wrap" class="contact-item__map-block">
-                                        <iframe class="contact-item__map" style="pointer-events: none;" src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" width="100%" height="505" frameborder="0"></iframe>
+                                    <div class="contact-item__map-block"  id="wrapMap">
+                                        <iframe class="contact-item__map" style="pointer-events: none;"  src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" width="100%" height="505" frameborder="0"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -252,7 +282,12 @@
                                             <div class="contact-item__address">
                                                 Адрес: г. Сочи, ул. Свободы, 14
                                             </div>
-                                            <a class="contact-item__link-map" href="#">
+                                            <div class="content_block">
+                                                <p></p>
+                                                <p></p>
+                                                <ul></ul>
+                                            </div>
+                                            <a class="contact-item__link-map" href="#map-modal3" data-fancybox="">
                                                 Карта проезда
                                             </a>
     
@@ -276,8 +311,8 @@
                                         </div>
                                     </div>
                                    
-                                    <div id="map-wrap" class="contact-item__map-block">
-                                        <iframe class="contact-item__map" style="pointer-events: none;" src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" width="100%" height="505" frameborder="0"></iframe>
+                                    <div class="contact-item__map-block"  id="wrapMap">
+                                        <iframe class="contact-item__map" style="pointer-events: none;"  src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" width="100%" height="505" frameborder="0"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -292,7 +327,7 @@
                                             <div class="contact-item__address">
                                                 Адрес: г. Крым, ул. Свободы, 14
                                             </div>
-                                            <a class="contact-item__link-map" href="#">
+                                            <a class="contact-item__link-map" href="#map-modal4" data-fancybox="">
                                                 Карта проезда
                                             </a>
     
@@ -316,8 +351,8 @@
                                         </div>
                                     </div>
                                    
-                                    <div id="map-wrap" class="contact-item__map-block">
-                                        <iframe class="contact-item__map" style="pointer-events: none;" src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" width="100%" height="505" frameborder="0"></iframe>
+                                    <div class="contact-item__map-block"  id="wrapMap">
+                                        <iframe class="contact-item__map" style="pointer-events: none;"  src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" width="100%" height="505" frameborder="0"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +424,7 @@
                         Наша команда
                     </h2>
                     <div class="team__row">
-                        <div class="team__item team__item--1">
+                        <div class="team__item">
                             <img class="team__img" src="images/team/1.jpg" alt="">
                                 <div class="team__item-text">
                                     <div class="team__item-title">
@@ -401,7 +436,7 @@
 
                                 </div>
                         </div>
-                        <div class="team__item team__item--2">
+                        <div class="team__item team__item--hor">
                             <img class="team__img" src="images/team/2.jpg" alt="">
                                 <div class="team__item-text">
                                     <div class="team__item-title">
@@ -413,7 +448,7 @@
 
                                 </div>
                         </div>
-                        <div class="team__item team__item--3">
+                        <div class="team__item">
                             <img class="team__img" src="images/team/1.jpg" alt="">
                                 <div class="team__item-text">
                                     <div class="team__item-title">
@@ -425,7 +460,7 @@
 
                                 </div>
                         </div>
-                        <div class="team__item team__item--4">
+                        <div class="team__item">
                             <img class="team__img" src="images/team/1.jpg" alt="">
                                 <div class="team__item-text">
                                     <div class="team__item-title">
@@ -437,7 +472,7 @@
 
                                 </div>
                         </div>
-                        <div class="team__item team__item--5">
+                        <div class="team__item team__item--ver">
                             <img class="team__img" src="images/team/3.jpg" alt="">
                             <div class="team__item-text">
                                 <div class="team__item-title">
@@ -449,7 +484,7 @@
 
                             </div>
                         </div>
-                        <div class="team__item team__item--6">
+                        <div class="team__item">
                             <img class="team__img" src="images/team/1.jpg" alt="">
                                 <div class="team__item-text">
                                     <div class="team__item-title">
@@ -461,7 +496,7 @@
 
                                 </div>
                         </div>
-                        <div class="team__item team__item--7">
+                        <div class="team__item team__item--ver">
                             <img class="team__img" src="images/team/3.jpg" alt="">
                                 <div class="team__item-text">
                                     <div class="team__item-title">
@@ -473,7 +508,7 @@
 
                                 </div>
                         </div>
-                        <div class="team__item team__item--8">
+                        <div class="team__item">
                             <img class="team__img" src="images/team/1.jpg" alt="">
                                 <div class="team__item-text">
                                     <div class="team__item-title">
@@ -485,7 +520,7 @@
 
                                 </div>
                         </div>
-                        <div class="team__item team__item--9">
+                        <div class="team__item">
                             <img class="team__img" src="images/team/1.jpg" alt="">
                             <div class="team__item-text">
                                 <div class="team__item-title">
@@ -547,15 +582,21 @@
                 </div>
                 <div class="call-block footer__call-block">
                     <div class="social">
-                        <a href="" class="social__link">
-                            <img class="social__link-img" src="images/social/telegram.png" alt="">
-                        </a>
-                        <a href="" class="social__link">
-                            <img class="social__link-img" src="images/social/viber.png" alt="">
-                        </a>
-                        <a href="" class="social__link">
-                            <img class="social__link-img" src="images/social/whatsapp.png" alt="">
-                        </a>
+                        <div class="social__container">
+                            <a href="" class="social__link">
+                                <img class="social__link-img" src="images/social/telegram.png" alt="">
+                            </a>
+                        </div>
+                        <div class="social__container">
+                            <a href="" class="social__link">
+                                <img class="social__link-img" src="images/social/viber.png" alt="">
+                            </a>
+                        </div>
+                        <div class="social__container">
+                            <a href="" class="social__link">
+                                <img class="social__link-img" src="images/social/whatsapp.png" alt="">
+                            </a>  
+                        </div>  
                     </div>
                     <div class="communication call-block__communication">
                         <a class="communication__link communication__link--number" href="tel:88004441046">8 800 444 10 46</a>
@@ -578,92 +619,95 @@
                 </nav>
             </div>
             <div class="footer__bottom">
-                <div class="footer__bottom-item">
-                    <div class="footer__bottom-title">
-                        Физическая охрана
+                <div class="footer__bottom-container">
+                    <div class="footer__bottom-item">
+                        <div class="footer__bottom-title">
+                            Физическая охрана
+                        </div>
+                        <ul class="footer__bottom-list">
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Сопровождение грузов
+                                </a>
+                            </li>   
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Охрана объектов
+                                </a>
+                            </li>
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Охрана мероприятий
+                                </a>
+                            </li>
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Телохранитель
+                                </a>
+                            </li>
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Охрана объектов с требованиями <br> по антитеррористической защищенностью <br>
+                                (баннер - школы, садики, больницы)
+                                </a>                            
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="footer__bottom-list">
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Сопровождение грузов
-                            </a>
-                        </li>   
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Охрана объектов
-                            </a>
-                        </li>
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Охрана мероприятий
-                            </a>
-                        </li>
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Телохранитель
-                            </a>
-                        </li>
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Охрана объектов с требованиями <br> по антитеррористической защищенностью <br>
-                            (баннер - школы, садики, больницы)
-                            </a>                            
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__bottom-item">
-                    <div class="footer__bottom-title">
-                        Пультовая охрана 
+                    <div class="footer__bottom-item">
+                        <div class="footer__bottom-title">
+                            Пультовая охрана 
+                        </div>
+                        <ul class="footer__bottom-list">
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Для дома
+                                </a>
+                            </li>   
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Для офиса
+                                </a>
+                            </li>
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Обслуживание и монтаж пультовой охраны
+                                </a>
+                            </li>
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Группа быстрого реагирования (ГБР)
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="footer__bottom-list">
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Для дома
-                            </a>
-                        </li>   
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Для офиса
-                            </a>
-                        </li>
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Обслуживание и монтаж пультовой охраны
-                            </a>
-                        </li>
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Группа быстрого реагирования (ГБР)
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__bottom-item">
-                    <div class="footer__bottom-title">
-                        Охрана объектов и имущества
+                    <div class="footer__bottom-item">
+                        <div class="footer__bottom-title">
+                            Охрана объектов и имущества
+                        </div>
+                        <ul class="footer__bottom-list">
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Промышленные объекты
+                                </a>
+                            </li>   
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Социальные объекты
+                                </a>
+                            </li>
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Коммерческие  объекты
+                                </a>
+                            </li>
+                            <li class="footer__bottom-list-item">
+                                <a class="footer__bottom-list-link" href="#">
+                                    Частные объекты
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="footer__bottom-list">
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Промышленные объекты
-                            </a>
-                        </li>   
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Социальные объекты
-                            </a>
-                        </li>
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Коммерческие  объекты
-                            </a>
-                        </li>
-                        <li class="footer__bottom-list-item">
-                            <a class="footer__bottom-list-link" href="#">
-                                Частные объекты
-                            </a>
-                        </li>
-                    </ul>
+                     
                 </div>
                 <div class="footer__bottom-item footer__bottom-item--mlauto">   
                     <div class="footer__bottom-item-text">
@@ -672,10 +716,12 @@
                     <a class="footer__bottom-item-link" href="#">
                         Разработано в Showbiz
                     </a>
-                </div>
+                </div>        
             </div>
+            
         </footer>
         <!--end footer-->
+ 
 
 
         <div class="feedback-modal" id="feedback-modal">
@@ -730,6 +776,26 @@
                </button>
                
             </form>
+        </div>
+        <div class="map-modal" id="map-modal1">
+            <div class="map-modal-block" id="wrapMap">
+                <iframe class="contact-item__map map-modal__map" style="pointer-events: none;"  src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" frameborder="0"></iframe>
+            </div>
+        </div>
+        <div class="map-modal" id="map-modal2">
+            <div class="map-modal-block" id="wrapMap">
+                <iframe class="contact-item__map map-modal__map" style="pointer-events: none;"  src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" frameborder="0"></iframe>
+            </div>
+        </div>
+        <div class="map-modal" id="map-modal3">
+            <div class="map-modal-block" id="wrapMap">
+                <iframe class="contact-item__map map-modal__map" style="pointer-events: none;"  src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" frameborder="0"></iframe>
+            </div>
+        </div>
+        <div class="map-modal" id="map-modal4">
+            <div class="map-modal-block" id="wrapMap">
+                <iframe class="contact-item__map map-modal__map" style="pointer-events: none;"  src="https://yandex.ru/map-widget/v1/?um=constructor%3A36e5d65cb229c93d43667e4a7c20e38f13f40cb3939f040cf54961724614a7eb&amp;source=constructor" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
 

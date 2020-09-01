@@ -169,7 +169,7 @@ button{
         
     }
     &__hint{
-        display: none;
+        opacity: 0;
         position: absolute;
         padding: 6px 5px;
         font-size: 9px;
@@ -190,7 +190,7 @@ button{
     &__item{
         padding-bottom: 2px;
         &:hover .logo__hint{
-            display: block;
+            opacity: 1;
         }
 
         &--1{
@@ -265,16 +265,28 @@ button{
         @include for-md{
             margin-top: 20px;
         }
-        @incl
+        
     }
 
 }
 .social{
     display: flex;
     align-items: center;
-    &__link + &__link{
-        margin-left: 10px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    max-width: 100px;
+    width: 100%;
+    &__container{
+        padding-right: 10px;
+        flex-shrink: 0;
+        width: 33.333333%;
     }
+    &__link{
+        transition: .3s;
+        &:hover{
+            transform: scale(.9);
+        }
+    }    
 }
 .communication{
     display: flex;
@@ -332,18 +344,14 @@ button{
     }
 }
 .hero{
-    padding: 45px 0 40px;
-    background-image: url(../img/hero-bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    @include for-md-mob{
-        padding: 0;
+    position: relative;
+    @include for-md{
+        position: static;
     }
     &__title{
         font-weight: 900;
-        font-size: 48px;
-        line-height: 60px;
+        font-size: 40px;
+        line-height: 55px;
         color: $white;
         text-align: center;
         text-transform: uppercase;
@@ -363,21 +371,37 @@ button{
     &__slider-inner{
         position: relative;
     }
-    &__slider{
-        padding: 198px 0 209px;
-        margin: 0 -15px;
+    &__slider-arrow{
         @include for-md{
+            display: none !important;
+        }
+    }
+    &__slider-item{
+        padding: 240px 200px 249px;
+        
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        min-height: 834px;
+        @media (max-height:750px){
+            padding: 150px 200px;
+            min-height: 640px;
+        }
+        @include for-md{
+            min-height: 0;
             padding: 70px 0 100px;
+            min-height: 439px;
         }
         @include for-sm{
             padding: 50px 0 70px;
         }
         @include for-md-mob{
+            min-height: 287px;
             padding: 20px 0 60px;
         }
     }
     &__text{
-        margin-top: 44px;
+        margin-top: 30px;
         font-weight: 500;
         font-size: 24px;
         line-height: 28px;
@@ -406,8 +430,9 @@ button{
         padding: 24px 0;
         max-width: 295px;
         width: 100%;
-        margin: 100px auto 0;
+        margin: 70px auto 0;
         min-height: 79px;
+        text-align: center;
         &::after{
             content: "";
             position: absolute;
@@ -437,15 +462,12 @@ button{
         @include for-md-mob{
             padding: 10px 0;
             min-height: 30px;
-            max-width: 100%;
         }
         
     }
+   
     &__swiper-pagination{
         background-color: $white;
-    }
-    .slick-slide{
-        padding: 0 15px;
     }
 } 
 
@@ -465,18 +487,34 @@ button{
 .menu{
     display: flex;
     justify-content: center;
+    max-width: 630px;
     &--mobile{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        top: 40px;
+        z-index: 12;
         @include for-md{
             display: none;
-            padding: 20px;
-            position: absolute; 
+            padding: 20px; 
             flex-direction: column;
             width: 100%;
+            height: 100%;
             top: 0;
             left: 0;
             background-color: $white;
             border-bottom: 2px solid $blue;
-            z-index: 12;
+            transform: none;
+            max-width: 100%;
+        }
+    }
+    &--relative{
+        top: 50%;
+        transform: translate(-50%, -50%);
+        @include for-md{
+            top: 0;
+            transform: none;
         }
     }
     &__list{
@@ -496,15 +534,15 @@ button{
         }
     }
     li + li{
-        margin-left: 6px;
+        
         @include for-md{
-
             margin-top: 10px;
             margin-left: 0;
         }
 
     }
     li{
+        margin: 5px;
         a{
             padding: 13px 23px;
             font-weight: 500;
@@ -529,12 +567,11 @@ button{
 }
 .slider-progress{
     position: absolute;
-    width: 88%;
-    
+    width: 88%;    
     height: 1px;
     z-index: 10;
     background-color: $white;
-    bottom: 23.5px;
+    // bottom: 23.5px;
     @include for-md{
         width: 100%;
     }
@@ -547,6 +584,17 @@ button{
         background-color: $blue;
     }
 }
+.slider-progress-block{
+    position: absolute;
+    width: 93%;
+    max-width: 1170px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+    @include for-sm{
+        bottom: 30px;
+    }
+}
 .arrows-slider{
     position: absolute;
     width: 47px;
@@ -556,21 +604,20 @@ button{
     background-repeat: no-repeat;
     background-position: center;
     bottom: 0;
+    transform: translateY(50%);
     top: auto;
     left: auto;
     transition: .3s;
+    z-index: 10;    
     &:hover{
         background-color: $blue;
         border-color: $blue;
-    }
-    @include for-md{
-        display: none !important;
-    }
+    }   
     &:after{
         display: none;
     }
     &__left{
-        right: 53px;
+        right: 57px;        
         background-image: url(../img/arrow-left.png);
     }
     &__right{
@@ -634,8 +681,12 @@ button{
         position: relative;
         display: flex;       
         flex-wrap: wrap;
-        justify-content: space-between;
         margin-top: 83px;
+        overflow: hidden;
+        // background-image: url(../img/line.jpg);
+        // background-size: 20%;
+        // background-position-y: 100px;
+        
         @include for-md{
             margin-top: 40px;
             // justify-content: center;
@@ -645,23 +696,88 @@ button{
             margin-top: 20px;
             align-items: center;
         }
+        
+
+    }
+    &__tab-container{
+        display: flex;
+        position: relative;
+        width: 33.3333%; 
+        margin-bottom: 10px; 
+        min-height: 28px;
         &:after{
             content: '';
             position: absolute;
-            width: 100%;
+            width: 300%;
+            left: 10px;
             height: 1px;
             background-color: #bdbdbd;
-            top: 50%;
-
+            top: 13px;
             @include for-md-mob{
-                display: none;
+                top: 5px;
+                left: 0;
+            }
+            
+        }      
+        &:first-child{
+            .services__tab{
+                padding-left: 0;
+                @include for-md{
+                    
+                }
+            }
+            
+        }
+        
+        &:nth-child(2), &:nth-child(5n){
+            justify-content: center;
+            @include for-sm{
+                justify-content: flex-end;
             }
         }
 
+        &:nth-child(2n){
+            @include for-md{
+                justify-content: flex-end;
+            }
+        }
+
+        &:nth-child(3n){
+            justify-content: flex-end;
+            .services__tab{
+                padding-right: 0;
+                
+            }  
+            @include for-md{
+                justify-content: flex-start;    
+            }  
+               
+        }
+        &:nth-child(4n){
+            .services__tab{
+                padding-left: 0;
+
+            }
+        }
+        @include for-md{            
+            width: 50%;
+            // margin-bottom: 35px;
+        }
+        @include for-sm{            
+            // margin-bottom: 10px;
+            justify-content: center;
+        }
+        @include for-sm{
+            justify-content: flex-start;
+        }
+        @include for-md-mob{
+            justify-content: center !important;
+            width: 100%;
+        }
     }
     &__tab{
-        position: relative;
-        padding: 0 13px;
+        position: relative; 
+        padding: 0 13px;       
         font-weight: 600;
         font-size: 18px;
         line-height: 22px;
@@ -669,19 +785,8 @@ button{
         white-space: nowrap;
         background-color: $white;
         z-index: 10;
-        // width: 33.3333%;
-        &:first-child{
-            padding-left: 0;
-            @include for-md{
-                
-            }
-        }
-        &:last-child{
-            padding-right: 0;
-            @include for-md{
-                
-            }
-        }
+        
+        
         &.active{
             font-weight: 600;
             font-size: 24px;
@@ -696,22 +801,23 @@ button{
                 line-height: 14px;
             }
         }
-        @include for-md{
-            width: 33.333%;
+        @include for-md{ 
+            height: 56px; 
+            padding: 0 15px !important;         
             text-align: center;
             white-space: initial;
         }
         @include for-sm{
+            height: 36px;
             font-size: 14px;
             line-height: 18px;
         }
         @include for-md-mob{
+            height: auto;
             margin-bottom: 10px;
             text-align: center;
-            padding: 0 5px;
             font-size: 10px;
             line-height: 12px;
-            width: 50%;
         }
         
     }
@@ -773,13 +879,24 @@ button{
     }
     &__slider-progress{
         background-color: #bdbdbd;
+        bottom: 0;
+        
     }
+    &__slider-progress-block{
+        max-width: 100%;
+        width: 100%;
+    }
+    
   
     
 }
-
 .services-arrows{
     border: 1px solid #bdbdbd;
+    bottom: 0;
+    transform: translateY(-40%);
+    @include for-md{
+        display: none !important;
+    }
     &__left{
         background-image: url(../img/arrow-left-grey.png);
     }
@@ -787,7 +904,6 @@ button{
         background-image: url(../img/arrow-right-grey.png);
     }
 }
-
 .services-items{
     &__inner{
         display: flex;
@@ -801,7 +917,7 @@ button{
         width: 33.333333%;
         padding-right: 1px;
         margin-bottom: 1px;
-        @include for-sm{
+        @include for-md{
             width: 50%;
         }
         @include for-md-mob{
@@ -831,7 +947,6 @@ button{
         }
         &:hover{
             .services-items__item-img{
-
                 transform: scale(1.18);
             }
         }
@@ -850,7 +965,7 @@ button{
         object-fit: cover;
         bottom: 0;
         left: 0;
-        transition: 1.2s;
+        transition: .7s;
     }
     &__item-title{
         position: relative;
@@ -974,7 +1089,11 @@ button{
         font-size: 18px;
         line-height: 24px;
         text-decoration: underline;
-        
+        transition: .3s;
+        &:hover{
+            color: $blue;
+            border-color: $blue;
+        }      
         @include for-sm{
             font-size: 16px;
             line-height: 20px;
@@ -1100,8 +1219,10 @@ button{
         flex-shrink: 0;
         overflow: hidden;
         background-image: url(../img/video-preview.jpg);
-        background-size: cover;
+        background-size: 100%;
+        background-position: center;
         background-repeat: no-repeat;
+        transition: .5s;
         &:before{
             content: '';
             position: absolute;
@@ -1119,6 +1240,9 @@ button{
             }
 
         }
+        &:hover{
+            background-size: 120%;
+        }
         @include for-lg{
             width: 500px;
         }
@@ -1131,6 +1255,7 @@ button{
         }
         @include for-md-mob{
             height: 200px;
+            background-size: cover;
         }
     }
     &__iframe{
@@ -1236,26 +1361,40 @@ button{
         border: 1px solid #bdbdbd;
     }
 }
-
 .about-arrows{
     top: 50%;
     transform: translateY(-50%);
     border: 1px solid #bdbdbd;    
+    @include for-md{       
+        transform: translateY(-50%) scale(.7);
+    }
     &__left{
         left: -70px;
         background-image: url(../img/arrow-left-grey.png);
         @include for-xl{
-            left: -23px;
+            left: -53px;
         }
+        @include for-lg-md{
+            left: -20px;
+        }
+        @include for-md{
+            left: -15px;
+        }
+        
         
     }
     &__right{
         right: -70px;
         background-image: url(../img/arrow-right-grey.png);
         @include for-xl{
-            right: -23px;
+            right: -53px;
         }
-        
+        @include for-lg-md{
+            right: -20px;
+        }
+        @include for-md{
+            right: -15px;
+        }        
     }
 }
 .swipper-container{
@@ -1270,12 +1409,15 @@ button{
     @include for-sm{
         padding: 30px 0 50px;
     }
+    &__inner{
+        position: relative;
+    }
     &__title{
         text-align: center;
     }
-    &__row{
-        position: relative;
+    &__row{        
         max-width: 1030px;
+        padding: 0 50px;
         margin: 45px auto 0;
     }
     &__slider-item{
@@ -1300,22 +1442,18 @@ button{
 
 }
 .clients-arrows{
-    top: 50%;
+    top: 55%;
     border: 1px solid #bdbdbd;
-    
+    // transform: none;
     &__left{
-        left: -70px;
+        left: 0;
         background-image: url(../img/arrow-left-grey.png);
-        @include for-xl{
-            left: 0;
-        }
+        
     }
     &__right{
-        right: -70px;
+        right: 0;
         background-image: url(../img/arrow-right-grey.png);
-        @include for-xl{
-            right: 0;
-        }
+        
     }
     
 }
@@ -1328,11 +1466,11 @@ button{
         padding: 70px 0 100px;
     }
     @include for-sm{
-        padding: 50px 0 70px;
+        padding: 50px 0 50px;
     }
-    @include for-md-mob{
-        padding: 20px 0 30px;
-    }
+    // @include for-md-mob{
+    //     padding: 20px 0 30px;
+    // }
     &__inner{
         text-align: center;
     }
@@ -1358,8 +1496,8 @@ button{
     &__subtitle{
         margin-top: 28px;
         font-weight: 500;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 22px;
+        line-height: 30px;
         color: $white;
         @include for-md{
             margin-top: 20px;
@@ -1415,18 +1553,17 @@ button{
         @include for-md-mob{
             padding: 10px 0;
             min-height: 30px;
-            max-width: 100%;
         }
         
     }
 }
 .feedback{
-    padding: 92px 0 105px;
+    padding: 80px 0;
     @include for-md{
-        padding: 50px 0 20px;
+        padding: 60px 0;
     }
     @include for-sm{
-        padding: 30px 0 20px;
+        padding: 50px 0;
     }
     &__title{
         font-weight: 700;
@@ -1464,8 +1601,7 @@ button{
     &__form-row{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-  
+        justify-content: space-between;  
         
     }
     &__form-item{
@@ -1569,17 +1705,19 @@ button{
     }
     &__conditions{
         margin-top: 18px;
+        text-align: center;
         color: $white;
         @include for-sm{
             font-size: 14px;
             line-height: 18px;
-            text-align: center;
+            
         }
     }
     &__conditions-link{
         display: inline;
         line-height: 24px;
         border-bottom: 1px solid $white;
+        transition: .3s;
         &:hover{
             border-bottom-color: transparent;
         }
@@ -1630,7 +1768,7 @@ button{
         
     }
     &__menu{
-
+        margin: 0 auto;
         li{
 
             a{
@@ -1648,47 +1786,59 @@ button{
     }
     &__bottom{
         display: flex;
-        padding: 63px 0 60px;
         max-width: 1635px;
+        padding: 63px 0 60px;
         margin: 0 auto;
+        @include for-md{
+            flex-direction: column;
+            padding: 15px 0 20px;
+        }
+        
+        
+    }
+    &__bottom-container{
+        display: flex;        
+        max-width: 1407px;
         flex-wrap: wrap;
         @include for-md{
             padding: 30px 0;
             flex-direction: column;
             text-align: center;
         }
-        @include for-md-mob{
-            padding: 15px 0 20px;
-        }
+        
     }
+    
     &__bottom-list{
         @include for-md{
             display: none;
         }
     }
 
-    &__bottom-item + &__bottom-item{
-        margin-left: 83px;
+    &__bottom-item{
+        margin-right: 83px;
+        margin-bottom: 20px;
         @include for-xl{
-            margin-left: 20px;
+            margin-right: 20px;
         }
         @include for-md{
-            margin-left: 0;
-            margin-top: 20px;
+            margin-right: 0;
         }
         @include for-md-mob{
             margin-top: 10px;
         }
        
         &--mlauto{
+            margin-right: 0;
             margin-left: auto;
             text-align: right;
+            flex-shrink: 0;
             @include for-md{
                 margin-left: 0;
                 text-align: center;
             }
         }
     }
+
     &__bottom-item-text{
         font-weight: 500;
         font-size: 14px;
@@ -1816,9 +1966,8 @@ button{
 .nav-block{
     &__inner{
         position: relative;
-        display: flex;
-        grid-template-columns: 1fr 24fr;
-        padding: 30px 0;
+        display: flex;        
+        min-height: 104px;
         align-items: center;
         justify-content: center;
         @include for-md{
@@ -1892,43 +2041,113 @@ button{
     }
     &__tabs{
         position: relative;
-        display: flex;
+        display: flex;       
         flex-wrap: wrap;
-        justify-content: space-between;
-        margin-top: 83px; 
-        &::after{
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background-color: #bdbdbd;
-            top: 50%;
-        }
+        margin-top: 83px;
+        overflow: hidden;
+       
         @include for-md{
             margin-top: 40px;
+            // justify-content: center;
         }
         @include for-md-mob{
+            // flex-direction: column;
             margin-top: 20px;
+            align-items: center;
+        }
+        
+
+    }
+    &__tab-container{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 25%;   
+        margin-bottom: 10px; 
+        min-height: 28px;
+        &:after{
+            content: '';
+            position: absolute;
+            width: 300%;
+            left: 10px;
+            height: 1px;
+            background-color: #bdbdbd;
+            top: 13px;
+            @include for-md-mob{
+                top: 5px;
+            }
+            
+        }           
+        &:first-child{
+            justify-content: flex-start;
+            .services__tab{
+                padding-left: 0;
+                @include for-md{
+                    
+                }
+            }
+            
+        }
+
+        &:nth-child(3n + 2){
+            @include for-md{
+                    justify-content: center;
+            }
+        }
+
+        &:nth-child(3n + 1){
+            @include for-md{
+                    justify-content: flex-start;
+            }
+        }
+        
+        
+        &:nth-child(3n){
+            @include for-md{
+                justify-content: flex-end;
+            }
+        }
+        
+        &:nth-child(4n){
+            justify-content: flex-end;
+            .services__tab{
+                padding-left: 0;
+            }
+            @include for-md{
+                justify-content: flex-start;
+            }
+        }
+        &:nth-child(5n){
+            justify-content: flex-start;
+            @include for-md{
+                justify-content: center;
+            }
+        }
+        @include for-md{            
+            width: 33.3333%;
+            // margin-bottom: 35px;
+        }
+       
+        @include for-sm{
+            justify-content: flex-start;
+        }
+        @include for-md-mob{
+            width: 100%;
+            justify-content: center !important;
         }
     }
     &__tab{
-        position: relative;
-        padding: 0 13px;
-        padding-left: 13px;
+        position: relative; 
+        padding: 0 13px;       
         font-weight: 600;
         font-size: 18px;
         line-height: 22px;
         color: $blue;
         white-space: nowrap;
-        background-color: #fff;
+        background-color: $white;
         z-index: 10;
-        &:first-child{
-            padding-left: 0;
-        }
-        &:last-child{
-            padding-right: 0;
-            
-        }
+        
+        
         &.active{
             font-weight: 600;
             font-size: 24px;
@@ -1939,22 +2158,26 @@ button{
                 line-height: 18px;
             }
             @include for-md-mob{
-                font-size: 14px;
-                line-height: 18px;
+                font-size: 12px;
+                line-height: 14px;
             }
         }
-        @include for-md{
+        @include for-md{ 
+                    
             text-align: center;
             white-space: initial;
         }
         @include for-sm{
+            
             font-size: 14px;
             line-height: 18px;
         }
         @include for-md-mob{
-            padding: 0 5px ;
-            font-size: 12px;
-            line-height: 16px;
+            height: auto;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 10px;
+            line-height: 12px;
         }
         
     }
@@ -2095,42 +2318,107 @@ button{
     }
     &__tabs{
         position: relative;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 83px; 
-        &::after{
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background-color: #bdbdbd;
-            top: 50%;
-        }
+        display: flex;       
+        flex-wrap: wrap;
+        margin-top: 83px;
+        overflow: hidden;
+       
         @include for-md{
             margin-top: 40px;
+            // justify-content: center;
         }
         @include for-md-mob{
+            // flex-direction: column;
             margin-top: 20px;
+            align-items: center;
+        }
+        
+
+    }
+    &__tab-container{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 25%;   
+        margin-bottom: 10px; 
+        min-height: 28px;
+        &:after{
+            content: '';
+            position: absolute;
+            width: 300%;
+            left: 10px;
+            height: 1px;
+            background-color: #bdbdbd;
+            top: 13px;
+            @include for-md-mob{
+                top: 5px;
+            }
+            
+        }           
+        &:first-child{
+            justify-content: flex-start;
+            .services__tab{
+                padding-left: 0;
+                @include for-md{
+                    
+                }
+            }
+            
+        }
+
+        &:nth-child(3n + 2){
+            @include for-md{
+                    justify-content: center;
+            }
+        }
+        
+        
+        &:nth-child(3n){
+            @include for-md{
+                justify-content: flex-end;
+            }
+        }
+        
+        &:nth-child(4n){
+            justify-content: flex-end;
+            .services__tab{
+                padding-left: 0;
+            }
+            @include for-md{
+                justify-content: flex-start;
+            }
+        }
+        &:nth-child(5n){
+            justify-content: flex-start;
+            @include for-md{
+                justify-content: center;
+            }
+        }
+        @include for-md{            
+            width: 33.3333%;
+            // margin-bottom: 35px;
+        }
+       
+        @include for-sm{
+            justify-content: flex-start;
+        }
+        @include for-md-mob{
+            width: 100%;
+            justify-content: center !important;
         }
     }
     &__tab{
-        position: relative;
-        padding: 0 13px;
-        padding-left: 13px;
+        position: relative; 
+        padding: 0 13px;       
         font-weight: 600;
         font-size: 18px;
         line-height: 22px;
         color: $blue;
         white-space: nowrap;
-        background-color: #fff;
+        background-color: $white;
         z-index: 10;
-        &:first-child{
-            padding-left: 0;
-        }
-        &:last-child{
-            padding-right: 0;
-            
-        }
+        
+        
         &.active{
             font-weight: 600;
             font-size: 24px;
@@ -2141,22 +2429,26 @@ button{
                 line-height: 18px;
             }
             @include for-md-mob{
-                font-size: 14px;
-                line-height: 18px;
+                font-size: 12px;
+                line-height: 14px;
             }
         }
-        @include for-md{
+        @include for-md{ 
+                    
             text-align: center;
             white-space: initial;
         }
         @include for-sm{
+            
             font-size: 14px;
             line-height: 18px;
         }
         @include for-md-mob{
-            padding: 0 5px ;
-            font-size: 12px;
-            line-height: 16px;
+            height: auto;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 10px;
+            line-height: 12px;
         }
         
     }
@@ -2185,7 +2477,7 @@ button{
         margin-left: 0;
     }
     &__address{
-        margin-top: 48px;
+        margin-top: 20px;
         font-weight: 500;
         @include for-md{
             margin-top: 30px;
@@ -2205,7 +2497,7 @@ button{
         }
     }
     &__link-map{
-        margin-top: 27px;
+        margin-top: 20px;
         padding-right: 18px;
         position: relative;
         display: inline-block;
@@ -2243,7 +2535,8 @@ button{
     }
     &__social{
         display: flex;
-        margin-top: 45px;
+        
+        margin-top: 20px;
         @include for-md{
             margin-top: 30px;
         }
@@ -2320,27 +2613,21 @@ button{
     &__row{
         display: grid;
         margin: 38px auto 0;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(3, 285px);
+        grid-auto-flow: column;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-auto-flow: dense;
         max-width: 1870px;
         grid-gap: 20px;
         @include for-xl{
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 285px);
-            grid-auto-flow: row;
+            grid-template-columns: 1fr 1fr 1fr;
         }
         @include for-md{
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(6, 285px);    
+            grid-template-columns: 1fr 1fr ;
         }
-        @include for-tiny-tablet{
-            display: flex;
-            flex-direction: column;
-            grid-template-columns: repeat(1, 450px);
-            grid-template-rows: repeat(11, 285px); 
-            justify-items: center;
-            
+        @include for-md-mob{
+            grid-template-columns: 1fr;
         }
+        
         
     }
     &__img-block{
@@ -2351,6 +2638,10 @@ button{
         position: relative;
         overflow: hidden;
         @include for-tiny-tablet{
+            grid-column: auto;
+        }
+        @include for-tiny-tablet{
+            grid-row: auto;
         }
         &:before{
             content: "";
@@ -2363,85 +2654,30 @@ button{
             bottom: 0;
             left: 0;
         }
-        &--1{
-            @include for-md{
-                grid-column-start: 1;
-                grid-column-end: 2;
-                grid-row-start: 1;
-                grid-row-end: 2;
+        &--hor{
+            grid-column: span 2;
+            @include for-md-mob{
+                grid-column: auto;
             }
+           
         }
-        &--2{
-            grid-column-start: 2;
-            grid-column-end: 4;
-            grid-row-start: 1;
-            grid-row-end: 1;
-            @include for-md{
-                grid-column-start: 1;
-                grid-column-end: 3;
-                grid-row-start: 2;
-                grid-row-end: 3;
-            }
+        &--ver{
+            grid-row: span 2;   
             @include for-tiny-tablet{
-                grid-column-start: 1;
-                grid-column-end: 2;
-                grid-row-start: 2;
-                grid-row-end: 3;
-            }
-            
-            
-        }
-       
-        &-4{
-            @include for-xl{
-                grid-column-start: 1;
-                grid-column-end: 2;
-                grid-row-start: 2;
-                grid-row-end: 3;
-            }
-        }
-        &--5{
-            grid-column-start: 2;
-            grid-column-end: 2;
-            grid-row-start: 2;
-            grid-row-end: 4;
-            @include for-md{
-                grid-column-start: 1;
-                grid-column-end: 2;
-                grid-row-start: 5;
-                grid-row-end: 7;
-            }
-        }
-        &--7{
-            grid-column-start: 4;
-            grid-column-end: 4;
-            grid-row-start: 2;
-            grid-row-end: 4;
-            @include for-xl{
-                grid-column-start: 3;
-                grid-column-end: 4;
-                grid-row-start: 2;
-                grid-row-end: 4;
-            }
-            @include for-md{
-                grid-column-start: 2;
-                grid-column-end: 3;
-                grid-row-start: 5;
-                grid-row-end: 7;
-            }
-            @include for-tiny-tablet{
-                grid-column-start: 1;
-                grid-column-end: 2;
-                grid-row-start: 8;
-                grid-row-end: 10;
-            }
+                grid-row: auto;
+                
+            }         
         }
     }
     
     &__img{
         display: block;
         width: 100%;
-        height: 100%;
+        min-height: 100%;
+        height: 285px;
+        @include for-tiny-tablet{
+            height: auto;
+        }
     }
     &__item-text{
         position: absolute;
@@ -2497,82 +2733,24 @@ button{
     &__slider{
         position: relative;
         margin-top: 44px;
-        padding-bottom: 63px;
+        padding-bottom: 80px;
         @include for-md-mob{
             margin-top: 25px;
             padding-bottom: 40px;
         }
     }
+    &__slider-progress-block{
+        width: 100%;
+    }
     &__slider-progress{
         background-color: #bdbdbd;
     }
-    // h2{
-    //     font-weight: 600;
-    //     font-size: 36px;
-    //     line-height: 40px;
+    // h2,h3,h4,h5,h6{
+    //     margin-bottom: 24px;
     //     @include for-md{
-    //         font-size: 32px;
-    //         line-height: 36px;
-    //     }
-    //     @include for-sm{
-    //         font-size: 28px;
-    //         line-height: 32px;
-    //     }
-    //     @include for-md-mob{
-    //         font-size: 22px;
-    //         line-height: 26px;
+    //         margin-bottom: 15px;
     //     }
     // }
-    // h3{
-    //     font-weight: 500;
-    //     font-size: 26px;
-    //     line-height: 30px;
-    //     @include for-md{
-    //         font-size: 22px;
-    //         line-height: 26px;
-    //     }
-    //     @include for-sm{
-            
-    //     }
-    //     @include for-md-mob{
-    //         font-size: 18px;
-    //         line-height: 22px;
-    //     }
-    // }
-    // h4{
-    //     font-weight: 500;
-    //     font-size: 20px;
-    //     line-height: 24px;
-        
-    //     @include for-md-mob{
-    //         font-size: 16px;
-    //         line-height: 20px;
-    //     }
-    // }
-    // h5{
-    //     font-weight: 500;
-    //     font-size: 17px;
-    //     line-height: 21px;
-    //     @include for-md-mob{
-    //         font-size: 14px;
-    //         line-height: 18px;
-    //     }
-    // }
-    // h6{
-    //     font-weight: 500;
-    //     font-size: 14px;
-    //     line-height: 18px;
-    //     @include for-md-mob{
-    //         font-size: 12px;
-    //         line-height: 16px;
-    //     }
-    // }
-    h2,h3,h4,h5,h6{
-        margin-bottom: 24px;
-        @include for-md{
-            margin-bottom: 15px;
-        }
-    }
    
     &__text-block{
         margin-top: 55px;
@@ -2585,12 +2763,12 @@ button{
         @include for-md-mob{
             margin-top: 15px;
         }
-        p{
-            margin-top: 36px;
-            @include for-md-mob{
-                margin-top: 20px;
-            }
-        }
+        // p{
+        //     margin-top: 36px;
+        //     @include for-md-mob{
+        //         margin-top: 20px;
+        //     }
+        // }
         a{
             font-weight: 700;
             color: $blue;
@@ -2599,11 +2777,8 @@ button{
                 text-decoration: none;
             }
         }
-        ul{
-            margin-top: 22px;
-            @include for-sm{
-                margin-top: 10px;
-            }
+        ul, ol{
+            
             li{
                 position: relative;
                 padding-left: 36px;
@@ -2798,7 +2973,7 @@ button{
     }
     &__slider-down{
         position: relative;
-        margin-top: 86px;
+        margin: 86px -1px 0;
         padding-bottom: 80px;
         @include for-sm{
             margin-top: 50px;
@@ -2836,6 +3011,9 @@ button{
             }
         }
     
+    }
+    .slick-slide{
+        margin: 0 1px;
     }
 
    
@@ -2919,11 +3097,11 @@ button{
     &__inner{
         position: relative;
         margin-top: 109px;
-        padding-bottom: 63px;
+        padding-bottom: 80px;
         margin-bottom: 78px;
         @include for-md-mob{
             margin-top: 25px;
-            padding-bottom: 40px;
+            margin-bottom: 30px;
         }
     }
     &__slider-progress{
@@ -2933,13 +3111,10 @@ button{
         background-color: $white !important;
     }
 }
-
-
 .ymaps-map {
     -ms-touch-action: auto !important;
     touch-action: auto !important;
-    }
-
+}
 
 .file-btn{
     cursor: pointer;
@@ -2960,4 +3135,26 @@ button{
     input{
         display: none;
     }
+}
+.map-modal{
+    display: none;
+    padding: 0;
+    width: 70%;
+    height: 70%;
+    overflow: visible;
+    @include for-md{
+        height: 50%;
+    }
+    &__map{
+        height: 100%;
+        width: 100%;
+        margin-left: 0;
+    }
+    .fancybox-close-small{
+        top: -34px;
+        right: -34px;
+    }
+}
+.map-modal-block{
+    height: 100%;
 }
