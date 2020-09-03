@@ -69,7 +69,7 @@
 
 $('.about-licenses__slider').slick({
     slidesToShow: 5,
-    speed: 300,
+    speed: 250,
     nextArrow: '<button class="arrows-slider arrows-slider__right about-arrows about-arrows__right"></button>',
     prevArrow: '<button class="arrows-slider arrows-slider__left about-arrows about-arrows__left"></button>',
     responsive: [
@@ -106,7 +106,7 @@ $('.about-licenses__slider').slick({
 
 $('.about-reviews__slider').slick({
     slidesToShow: 5,
-    speed: 300,
+    speed: 250,
     nextArrow: '<button class="arrows-slider arrows-slider__right about-arrows about-arrows__right"></button>',
     prevArrow: '<button class="arrows-slider arrows-slider__left about-arrows about-arrows__left"></button>',
     responsive: [
@@ -183,7 +183,7 @@ $(document).ready(function(){
     $slick3.slick({
       autoplay:true,
       autoplaySpeed:5500,
-      speed: 600,
+      speed: 400,
       slidesToShow: 1,
       draggable: true,
       fade: false,
