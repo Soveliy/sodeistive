@@ -2824,6 +2824,9 @@ button{
 }
 
 .content-page{
+    img{
+        max-width: 100%;
+    }
     &__inner{
         padding: 70px 25px 73px;
         background-color: $white;
@@ -2840,7 +2843,7 @@ button{
     &__slider{
         position: relative;
         margin-top: 50px;
-        padding-bottom: 80px;
+        padding-bottom: 80px;   
         @include for-md-mob{
             margin-top: 30px;
             padding-bottom: 40px;
@@ -3084,6 +3087,10 @@ button{
     &__slider-down-block{
         position: static;
         margin: 0 -10px;
+        .slick-slide{
+            padding: 10px;
+            box-sizing: border-box;
+        }
     }
     &__slider-down-img-block{
         max-width: 400px;
