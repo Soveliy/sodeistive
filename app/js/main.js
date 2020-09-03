@@ -323,22 +323,27 @@ $(document).ready(function(){
     breakpoints: {
       320: {
         slidesPerView: 1,
+        slidesPerColumn: 2,
         spaceBetween: 20
       },
       550: {
         slidesPerView: 2,
+        slidesPerColumn: 2,
         spaceBetween: 30
       },
       750: {
         slidesPerView: 3,
+        slidesPerColumn: 2,
         spaceBetween: 40,
       },
       1024: {
         slidesPerView: 4,
+        slidesPerColumn: 2,
         spaceBetween: 40
       },
       1400: {
         slidesPerView: 5,
+        slidesPerColumn: 2, 
         spaceBetween: 40
       },
     },
@@ -355,7 +360,8 @@ $(document).ready(function(){
   $('.nav-toggle').click(function () {
     $(this).toggleClass('opened')
     $('.menu').slideToggle()
-    $('wrapper').toggle('overflow: hidden')
+    $('wrapper').toggle('overflow: hidden');
+    $("body").toggleClass("js-hidden")
       
   });
 
