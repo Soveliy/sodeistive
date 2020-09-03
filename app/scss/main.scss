@@ -114,6 +114,9 @@ button{
     padding: 15px 0 12px;
     background-color: $white;
     min-height: 145px;
+    .call-block__communication{
+        margin-bottom: 0;
+    }
     &__inner{
         display: flex;
         padding: 0 15px;
