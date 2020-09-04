@@ -69,7 +69,8 @@
 
 $('.about-licenses__slider').slick({
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
+    infinite:false,
     speed: 300,
     nextArrow: '<button class="arrows-slider arrows-slider__right about-arrows about-arrows__right"></button>',
     prevArrow: '<button class="arrows-slider arrows-slider__left about-arrows about-arrows__left"></button>',
@@ -78,7 +79,7 @@ $('.about-licenses__slider').slick({
         breakpoint: 1400,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4
+   
           
         }
       },
@@ -86,14 +87,14 @@ $('.about-licenses__slider').slick({
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3
+    
         }
       },
       {
         breakpoint: 750,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2
+       
         }
       },
       {
@@ -108,7 +109,7 @@ $('.about-licenses__slider').slick({
 
 $('.about-reviews__slider').slick({
     slidesToShow: 5,
-    slidesToScroll:5,
+    infinite:false,
     speed: 300,
     nextArrow: '<button class="arrows-slider arrows-slider__right about-arrows about-arrows__right"></button>',
     prevArrow: '<button class="arrows-slider arrows-slider__left about-arrows about-arrows__left"></button>',
@@ -117,7 +118,7 @@ $('.about-reviews__slider').slick({
         breakpoint: 1400,
         settings: {
           slidesToShow: 4,
-          slidesToScroll:4,
+  
           
         }
       },
@@ -125,14 +126,14 @@ $('.about-reviews__slider').slick({
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3
+
         }
       },
       {
         breakpoint: 750,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2
+
         }
       },
       {
@@ -160,7 +161,7 @@ $(document).ready(function(){
     
     $slick.slick({
   
- 
+      infinite:false,
       draggable: true,
       centerPadding: '20px',
       adaptiveHeight: false,
@@ -172,7 +173,7 @@ $(document).ready(function(){
     
     $slick2 = $('.services__slider-block');
     $slick2.slick({
- 
+      infinite:false,
       speed: 600,
       draggable: true,
       fade: true,
@@ -194,6 +195,7 @@ $(document).ready(function(){
       adaptiveHeight: false,
       mobileFirst: true,
       pauseOnDotsHover: false,
+      infinite:false,
       nextArrow: '<button class="arrows-slider arrows-slider__right services-arrows services-arrows__right"></button>',
       prevArrow: '<button class="arrows-slider arrows-slider__left services-arrows services-arrows__left"></button>',
     responsive: [
