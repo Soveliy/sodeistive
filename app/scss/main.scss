@@ -377,7 +377,7 @@ button{
             line-height: 46px;
         }
         @include for-sm{
-            font-size: 38px;
+            font-size: 36px;
             line-height: 42px;
         }
         @include for-md-mob{
@@ -433,7 +433,7 @@ button{
         }
         @include for-xl{
             padding: 100px 200px;
-            min-height: 640px;
+            min-height: 655px;
         }
         @include for-md{
             min-height: 0;
@@ -561,6 +561,9 @@ button{
         z-index: 12;
         overflow: auto;
         transition: .3s;
+        @include for-xl{
+            top: 30px;
+        }
         @include for-md{
             // display: none;
             padding: 0; 
@@ -3212,9 +3215,7 @@ button{
         border-radius: 50%;
         background-color: $blue;
         color: $white;
-        @include for-sm{
-            top: -6px;
-        }
+        top: -6px;
     }
     &__text{
         padding-left: 52px;
@@ -3223,13 +3224,11 @@ button{
         }
     }
     &__title{
+        padding-left: 45px;
         font-weight: 500;
         font-size: 20px;
         line-height: 24px;
         color: $blue;
-        @include for-sm{
-            padding-left: 45px;
-        }
     }
     &__row{
         margin-top: 35px;
