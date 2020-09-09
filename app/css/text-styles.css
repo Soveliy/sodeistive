@@ -61,6 +61,15 @@
     margin-bottom: 25px;
     list-style: none;
     padding-left: 30px; }
+    @media screen and (max-width:1024px){
+      .content_box_site ul, .content_box_site ol, .content_block ul, .content_block ol, .text_poll ul, .text_poll ol{
+        padding-left: 10px;
+      }
+      
+      .content_box_site ul li:before, .content_box_site ol li:before, .content_block ul li:before, .content_block ol li:before, .text_poll ul li:before, .text_poll ol li:before{
+        left:0
+      }
+    }
     .content_box_site ul li, .content_box_site ol li, .content_block ul li, .content_block ol li, .text_poll ul li, .text_poll ol li {
       margin-bottom: 15px;
       font-weight: 300;
@@ -75,7 +84,7 @@
         width: 20px;
         height: 15px;
         top: 8px;
-        left: -30px; }
+        left: 0; }
       .content_box_site ul li a, .content_box_site ol li a, .content_block ul li a, .content_block ol li a, .text_poll ul li a, .text_poll ol li a {
         font-weight: 400;
         color: #0d82bb;

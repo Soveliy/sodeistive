@@ -91,6 +91,10 @@ button{
     }
 }
 
+.vis_item {overflow: visible!important;}
+
+.hid_imp{overflow:hidden!important;}
+
 .section-title{
     font-weight: 700;
     font-size: 36px;
@@ -353,6 +357,9 @@ button{
 }
 .hero{
     position: relative;
+    &.active{
+        position: static;
+    }
     @include for-md{
         position: static;
     }
@@ -423,6 +430,10 @@ button{
                 height: 50%;
             }
             
+        }
+        @include for-xl{
+            padding: 100px 200px;
+            min-height: 640px;
         }
         @include for-md{
             min-height: 0;
@@ -510,6 +521,9 @@ button{
 
 .nav-toggle{z-index: 100;
     display: none;
+    &.active{
+        display: block;
+    }
     @include for-md{
         display: block;
     }
@@ -517,9 +531,9 @@ button{
 .nav-toggle:focus {outline-width: 0;}
 .nav-toggle [class*='bar-'] { background: $black; display: block;-webkit-transform: rotate(0deg);transform: rotate(0deg);-webkit-transition: .2s ease all;transition: .2s ease all;height: 3px;width: 23px; margin-bottom: 5px; border-radius: 1px;}
 .nav-toggle .bar-bot {margin-bottom: 0;}
-.opened .bar-top {background-color: $black; -webkit-transform: rotate(45deg);transform: rotate(45deg);-webkit-transform-origin: 0% 50%;transform-origin: 0% 50%;}
-.opened .bar-mid {opacity: 0;}
-.opened .bar-bot {background-color: $black; -webkit-transform: rotate(45deg);transform: rotate(-45deg);-webkit-transform-origin: 0% 95%;transform-origin: 5% 50%;}
+.active .bar-top {background-color: $black; -webkit-transform: rotate(45deg);transform: rotate(45deg);-webkit-transform-origin: 0% 50%;transform-origin: 0% 50%;}
+.active .bar-mid {opacity: 0;}
+.active .bar-bot {background-color: $black; -webkit-transform: rotate(45deg);transform: rotate(-45deg);-webkit-transform-origin: 0% 95%;transform-origin: 5% 50%;}
 
 .menu{
     display: flex;
@@ -536,6 +550,7 @@ button{
             padding: 20px;
             
         }
+        
     }
     &--mobile{
         position: absolute;
@@ -545,8 +560,21 @@ button{
         top: 40px;
         z-index: 12;
         overflow: auto;
+        transition: .3s;
         @include for-md{
-            display: none;
+            // display: none;
+            padding: 0; 
+            flex-direction: column;
+            width: 100%;
+            height: 0;
+            top: 0;
+            left: 0;
+            background-color: $white;
+            transform: none;
+            max-width: 100%;
+        }
+        &.active{
+            // display: none;
             padding: 0; 
             flex-direction: column;
             width: 100%;
@@ -554,9 +582,42 @@ button{
             top: 0;
             left: 0;
             background-color: $white;
-        
             transform: none;
             max-width: 100%;
+            .menu__container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                box-sizing: border-box;
+                padding: 20px;
+            }
+            .menu__list{
+                flex-direction: column;
+            }
+            .menu__mobile-block{
+                display: block;
+            }
+            li + li{
+                margin-top: 10px;
+                margin-left: 0;
+            }
+            li{
+                a{
+                    padding: 10px 15px;
+                    border: none;
+                    color: $blue;
+                }
+            }
+            .call-block__call{
+                margin-top: 20px;
+                margin-left: 0;
+            }
+            .communication__link{
+                margin-left: 0;
+                margin-top: 20px;
+            }
         }
     }
     &--relative{
@@ -1103,7 +1164,10 @@ button{
     }
     &__item{
         display: flex;
-        align-items: flex-start;
+        align-items: center;
+        @include for-md(){
+            align-items: flex-start;
+        }
         &:hover{
             .why-we__link{
                 color: $blue;
@@ -1320,7 +1384,7 @@ button{
     &__licenses{
         margin-top: 45px;
         @include for-sm{
-            margin-top: 30px;
+            margin: 50px 0;
         }
     }
     &__reviews{
@@ -1892,7 +1956,7 @@ button{
             margin-right: 0;
         }
         @include for-md-mob{
-            margin-top: 10px;
+            margin-top: 15px;
             margin-bottom: 0;
         }
        
@@ -1936,15 +2000,12 @@ button{
         font-size: 18px;
         line-height: 22px;
         color: $blue;
-        @include for-md{
-            cursor: pointer;
-            margin-bottom: 5px;
-        }
+      
     }
     &__bottom-list-item + &__bottom-list-item{
         margin-top: 6px;
         @include for-md-mob{
-            margin-top: 0;
+            margin-top: 3px;;
         }
         
     }
@@ -3217,6 +3278,7 @@ button{
         padding-bottom: 80px;
         margin-bottom: 78px;
         @include for-md-mob{
+            padding-bottom: 40px;
             margin-top: 25px;
             margin-bottom: 30px;
         }
