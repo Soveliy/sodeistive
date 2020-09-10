@@ -139,8 +139,8 @@ button{
         min-height: 0;
     }
     @include for-md-mob{
-        height: 100px;
-        padding: 0;
+       
+        padding: 10px 0;
     }
 }
 .logo{
@@ -148,7 +148,7 @@ button{
     border-radius: 15px;
     border: 1px solid $blue;
     @include for-md-mob{
-        transform: scale(.6);
+        transform: scale(.8);
         transform-origin: 0 center;
     }
     &__inner{
@@ -1234,13 +1234,13 @@ button{
 }
 .about{
     &__inner{
-        padding: 90px 25px 190px;
+        padding: 90px 25px;
         background-color: $white;
         @include for-md{
-            padding: 50px 25px 100px;
+            padding: 50px 25px;
         }
         @include for-sm{
-            padding: 50px 15px 50px;
+            padding: 50px 15px;
         }
     }
     &__title{
@@ -1839,6 +1839,9 @@ button{
         @include for-sm{
             font-size: 14px;
             line-height: 18px;
+            br{
+                display: none;
+            }
             
         }
     }
@@ -2582,10 +2585,7 @@ button{
                 font-size: 16px;
                 line-height: 18px;
             }
-            @include for-md-mob{
-                font-size: 12px;
-                line-height: 14px;
-            }
+           
         }
         @include for-md{ 
                     
@@ -2597,13 +2597,7 @@ button{
             font-size: 14px;
             line-height: 18px;
         }
-        @include for-md-mob{
-            height: auto;
-            margin-bottom: 10px;
-            text-align: center;
-            font-size: 10px;
-            line-height: 12px;
-        }
+       
         
     }
 }
@@ -2637,12 +2631,18 @@ button{
     > *:last-child(){
         margin-bottom: 0;
     }
+    .call-block__communication{
+        @include for-md(){
+            align-items: flex-start;
+        }
+    }
     &__inner{
         display: flex;
         align-items: center;
         justify-content: space-between;
         @include for-md{
             flex-direction: column-reverse;
+            align-items: flex-start;
         }
     }
     &__communication-link{
@@ -2664,6 +2664,7 @@ button{
         
         @include for-md{
             margin-top: 40px;
+            width: 100%;
           
         }
         @include for-md-mob{
@@ -2711,8 +2712,8 @@ button{
     }
     &__social{
         display: flex;
-        
-  
+        flex-wrap: wrap;
+        margin: 0 -4px;
       
         // @include for-md-mob{
         //     margin-top: 15px;
@@ -2730,6 +2731,7 @@ button{
         border-radius: 50%;
         background-color: $blue;
         transition: .3s;
+        margin: 4px;
         &:hover{
             transform: translateY(-5px);
         }
@@ -2737,9 +2739,7 @@ button{
     &__social-item-img{
         transition: .3s;
     }
-    &__social-item + &__social-item{
-        margin-left: 7px;
-    }
+   
     &__img-block{
         max-width: 727px;
     }
